@@ -6,7 +6,7 @@ const Navbar = () => {
   const navLinkStyles = ({ isActive }) => {
     return {
       fontWeight: isActive ? "bold" : "normal",
-      textDecoration: isActive ? "None" : "underline"
+      textDecoration: isActive ? "None" : "underline",
     };
   };
 
@@ -23,16 +23,16 @@ const Navbar = () => {
       <NavLink style={navLinkStyles} to="/products">
         Products
       </NavLink>
-      <NavLink style={navLinkStyles} to="/profile">
-        Profile
-      </NavLink>
-      {
-        !auth.user && (
-          <NavLink style={navLinkStyles} to="/login">
+      {auth.user && (
+        <NavLink style={navLinkStyles} to="/profile">
+          Profile
+        </NavLink>
+      )}
+      {!auth.user && (
+        <NavLink style={navLinkStyles} to="/login">
           Login
         </NavLink>
-        )
-      }
+      )}
     </nav>
   );
 };
