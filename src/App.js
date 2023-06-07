@@ -25,9 +25,10 @@ function App() {
           <Route path="featured" element={<FeaturedProducts/>}></Route>
           <Route path="new" element={<NewProducts/>}></Route>
         </Route>
-        <Route path="users" element={<Users/>}></Route>
-        <Route path="users/:userId" element={<UserDetails/>}></Route>
-        <Route path="users/admin" element={<Admin/>}></Route>
+        <Route path="users" element={<Users/>}>
+          <Route path=":userId" element={<UserDetails/>}></Route>
+          <Route path="admin" element={<Admin/>}></Route>
+        </Route>
         <Route path="*" element={<NoMatchRoute />}></Route>
       </Routes>
     </>
