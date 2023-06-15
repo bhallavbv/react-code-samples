@@ -2,10 +2,11 @@ import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import "./App.css";
 import { HomePage } from "./components/Home.page";
 import { RQSuperHeroesPage } from "./components/RQSuperHeroes.page";
+import { ReactQueryDevTools, ReactQueryDevtools } from "react-query/devtools";
 import { SuperHeroesPage } from "./components/SuperHeroes.page";
 import { QueryClient, QueryClientProvider } from "react-query";
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient();
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
           </Routes>
         </div>
       </Router>
+      <ReactQueryDevtools initialIsOpen={false} position="bottom-right"/>
     </QueryClientProvider>
   );
 }
