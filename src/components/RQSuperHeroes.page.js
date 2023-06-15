@@ -7,7 +7,7 @@ const fetchSuperHeroes = () => {
 };
 
 export const RQSuperHeroesPage = () => {
-  const { isLoading, data, isError, error } = useQuery(
+  const { isLoading, data, isError, error, isFetching, refetch } = useQuery(
     "super-heroes",
     fetchSuperHeroes,
     {
@@ -17,11 +17,11 @@ export const RQSuperHeroesPage = () => {
       // refetchOnWindowFocus: true // true: default 
       // refetchInterval: 2000, // doesnt refetch when app not in focus
       // refetchIntervalInBackground: true // will refetch even if app is not in focus
-      enabled: false // do not fetch query on load
+      enabled: false, // do not fetch query on load
     }
   );
 
-  if (isLoading) {
+  if (isLoading || isFetching) {
     return <h2>Loading...</h2>;
   }
 
@@ -32,6 +32,7 @@ export const RQSuperHeroesPage = () => {
   return (
     <>
       <h2>RQ Super Heroes</h2>
+      <button onClick={refetch}>Fetch heroes</button>
       {data?.data.map((hero) => {
         return <div key={hero.name}> {hero.name}</div>;
       })}
