@@ -3,7 +3,7 @@ import React from "react";
 import { useQuery } from "react-query";
 
 const fetchSuperHeroes = () => {
-  return axios.get("http://localhost:4000/superheroes1");
+  return axios.get("http://localhost:4000/superheroes");
 };
 
 export const RQSuperHeroesPage = () => {
