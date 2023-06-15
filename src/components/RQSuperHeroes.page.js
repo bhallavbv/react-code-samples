@@ -10,7 +10,10 @@ export const RQSuperHeroesPage = () => {
   const { isLoading, data, isError, error } = useQuery(
     "super-heroes",
     fetchSuperHeroes,
-    { cacheTime: 5000 } // default cache time is 5 minutes
+    {
+      cacheTime: 5000, // default cache time is 5 minutes
+      staleTime: 30000, // default stale time is 0 ms
+    }
   );
 
   if (isLoading) {
