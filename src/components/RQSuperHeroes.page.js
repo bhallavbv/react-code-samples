@@ -15,8 +15,9 @@ export const RQSuperHeroesPage = () => {
       // staleTime: 30000, // default stale time is 0 ms
       // refetchOnMount: true, // true: default, false: refresh only on page refresh , always
       // refetchOnWindowFocus: true // true: default 
-      refetchInterval: 2000, // doesnt refetch when app not in focus
-      refetchIntervalInBackground: true // will refetch even if app is not in focus
+      // refetchInterval: 2000, // doesnt refetch when app not in focus
+      // refetchIntervalInBackground: true // will refetch even if app is not in focus
+      enabled: false // do not fetch query on load
     }
   );
 
