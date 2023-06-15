@@ -7,6 +7,15 @@ const fetchSuperHeroes = () => {
 };
 
 export const RQSuperHeroesPage = () => {
+
+  const onSuccess = () => {
+    console.log("Perform side effect after data fetching");
+  };
+
+  const onError = () => {
+    console.log("Perform side effect after error");
+  };
+
   const { isLoading, data, isError, error, isFetching, refetch } = useQuery(
     "super-heroes",
     fetchSuperHeroes,
@@ -14,12 +23,16 @@ export const RQSuperHeroesPage = () => {
       // cacheTime: 5000, // default cache time is 5 minutes
       // staleTime: 30000, // default stale time is 0 ms
       // refetchOnMount: true, // true: default, false: refresh only on page refresh , always
-      // refetchOnWindowFocus: true // true: default 
+      // refetchOnWindowFocus: true // true: default
       // refetchInterval: 2000, // doesnt refetch when app not in focus
       // refetchIntervalInBackground: true // will refetch even if app is not in focus
-      enabled: false, // do not fetch query on load
+      // enabled: false, // do not fetch query on load
+      onSuccess,
+      onError
     }
   );
+
+  
 
   if (isLoading || isFetching) {
     return <h2>Loading...</h2>;
