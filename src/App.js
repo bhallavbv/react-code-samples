@@ -46,7 +46,7 @@ function App() {
             ></Route>
             <Route
               path="/rq-dependant-queries"
-              element={<DependentQueriesPage />}
+              element={<DependentQueriesPage userId="3" />}
             ></Route>
 
             <Route
