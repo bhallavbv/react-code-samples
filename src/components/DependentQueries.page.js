@@ -17,9 +17,9 @@ export const DependentQueriesPage = ({ userId }) => {
   const channelId = user?.data.channelId;
   console.log("User data::", user?.data);
 
-  const {data: courses} = useQuery(["courses", channelId], () => {
+  const { data: courses } = useQuery(["courses", channelId], () => {
     fetchCoursesByChannelId(channelId), { enabled: !!channelId }; // query is only triggered when channel id gets a value
   });
-  console.log("Courses data::", courses)
+  console.log("Courses data::", courses);
   return <div>Dependent Queries Page</div>;
 };
