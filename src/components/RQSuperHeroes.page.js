@@ -29,7 +29,7 @@ export const RQSuperHeroesPage = () => {
       <h2>RQ Super Heroes</h2>
       <button onClick={refetch}>Fetch heroes</button>
       {data?.data.map((hero) => {
-        return <Link to={`/rq-super-heroes/${hero.id}`}> {hero.name}</Link>;
+        return <Link key={hero.id} to={`/rq-super-heroes/${hero.id}`}> {hero.name}</Link>;
       })}
       {/* {data.map((heroName) => {
         return <div key={heroName}>{heroName}</div>;
