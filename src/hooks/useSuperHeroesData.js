@@ -16,9 +16,9 @@ export const useSuperHeroesData = (onSuccess, onError) => {
     // enabled: false, // do not fetch query on load
     onSuccess,
     onError,
-    select: (data) => {
-      const superHeroNames = data.data.map((hero) => hero.name);
-      return superHeroNames;
-    },
+    // select: (data) => {
+    //   const superHeroNames = data.data.map((hero) => hero.name);
+    //   return superHeroNames;
+    // },
   });
 };
